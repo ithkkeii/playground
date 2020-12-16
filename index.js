@@ -1,5 +1,6 @@
 console.log("hotfix");
 
 const sum = (a, b) => {
-  return a - b;
+  console.log("hello new world");
+  return a * b;
 };
