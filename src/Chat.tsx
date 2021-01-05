@@ -6,7 +6,7 @@ interface Props {
   messages: Message[];
   searchText: string;
   choseMessage: ChoseMessage | null;
-  setHighlightMessage: React.Dispatch<React.SetStateAction<Message[]>>;
+  setHighlightMessage: React.Dispatch<React.SetStateAction<ChoseMessage[]>>;
 }
 
 const Chat: React.FC<Props> = ({
