@@ -12,9 +12,7 @@ const StaleCallback = () => {
   // hence counter always equal 0.
   const handleIncrement = useCallback(() => {
     setCounter(counter + 1);
-  }, [counter]);
-
-  console.log('re render');
+  }, []);
 
   const fetchSomething = () => {
     setCancel(false);
