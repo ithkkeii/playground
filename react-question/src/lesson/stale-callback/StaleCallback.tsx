@@ -18,6 +18,10 @@ const StaleCallback = () => {
     setCancel(false);
     setIsLoading(true);
 
+    // Counter will always be the value when delay is trigger,
+    // at that time the counter's value is snapshot and regardless
+    // whatever counter's value become when delay is not resolve yet
+    // counter inside console.log will not be affected.
     delay(3000).then(() => {
       if (cancel) return;
 
