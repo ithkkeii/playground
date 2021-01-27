@@ -14,7 +14,7 @@ const StaleCallback = () => {
     setCounter(counter + 1);
   }, []);
 
-  const fetchSomething = useCallback(() => {
+  const fetchSomething = () => {
     console.log('created');
     setCancel(false);
     setIsLoading(true);
@@ -31,7 +31,7 @@ const StaleCallback = () => {
       console.log(counter);
       setIsLoading(false);
     });
-  }, [cancel, counter]);
+  };
 
   // Stale callback fix
   // useEffect(() => {
