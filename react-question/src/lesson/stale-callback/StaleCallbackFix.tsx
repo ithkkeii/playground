@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import { delay } from '../../utils/delay';
 
 type ActionType = {
   type: 'fetch' | 'resolve' | 'cancel';

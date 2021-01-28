@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import { delay } from '../../utils/delay';
 
 const StaleCallback = () => {
   const [counter, setCounter] = useState(0);
