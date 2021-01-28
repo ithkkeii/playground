@@ -23,7 +23,6 @@ const StaleCallback = () => {
     // at that time the counter's value is snapshot and regardless
     // whatever counter's value become when delay is not resolve yet
     // counter inside console.log will not be affected.
-    // The way you can fix this problem is using useEffect.
     delay(3000).then(() => {
       if (cancel) return;
 
@@ -32,21 +31,6 @@ const StaleCallback = () => {
       setIsLoading(false);
     });
   };
-
-  // Stale callback fix
-  // useEffect(() => {
-  //   if (!isLoading) {
-  //     setCancel(false);
-
-  //     delay(3000).then(() => {
-  //       if (cancel) return;
-
-  //       console.log(cancel);
-  //       console.log(counter);
-  //       setIsLoading(false);
-  //     });
-  //   }
-  // }, [cancel, counter, isLoading]);
 
   const handleFetchSomething = () => {
     fetchSomething();
