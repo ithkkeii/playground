@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { delay } from '../../utils/delay';
 
 const PreviousState = () => {
@@ -14,9 +14,25 @@ const PreviousState = () => {
     delay(5000).then(() => setCounter((prev) => prev + 1));
   }, []);
 
+  let isTriggerReturn = false;
+
+  // return will execute when counter is change.
+  useEffect(() => {
+    return () => {
+      isTriggerReturn = true;
+      console.log(isTriggerReturn);
+    };
+  }, [counter]);
+
+  // setCounter will not recreate when state change.
+  useEffect(() => {
+    console.log('re render');
+  }, [setCounter]);
+
   return (
     <div>
       <p>{counter}</p>
+      <p>{isTriggerReturn ? 'true' : 'false'}</p>
       <button onClick={handleClick}>Click</button>
       <button onClick={handleSyncClick}>Sync Click</button>
     </div>
